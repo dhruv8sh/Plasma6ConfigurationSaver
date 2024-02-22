@@ -1,14 +1,16 @@
-PlasmaConfSaver
+Plasma Configuration Saver
 ===========
+An applet to save your plasma configurations and change them on the fly.
 
-This is a plasma 5 widget that allows you to save your current desktop layout configuration and restore previous saved layouts on the fly.
+## Warning:
+- This is currently experimental, save your work before using.
+- Your configurations will be safe, but you might experience crashes.
+- Run `systemctl --user restart plasma-plasmashell` if the panels or the wallpaper stop showing. And they should be back.
 
-REQUERIMENTS:
-spectacle
-kdialog
-Konsole
-Qt.labs.platform
+## Install
+To install run `plasmapkg2 -i .` in the directory of the project.
 
-Please, if you like the work i do, consider making a donation to support my work! Thaks you!</br>
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RLHBW9ET7FLP4)
-
+## Current Status
+- Runs **almost** perfectly in plasmoidviewer.
+- Crashes when applying theme after applet installed.
+- Need to logout and login to see the changes in Color Scheme and such.
