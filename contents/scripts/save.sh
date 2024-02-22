@@ -20,10 +20,6 @@ cp "$configPath/kdeglobals" "$configFolder/kdeglobals"
 cp "$configPath/kwinrc" "$configFolder/kwinrc"
 cp "$configPath/kwinrulesrc" "$configFolder/kwinrulesrc"
 
-#latte-dock config files
-cp "$configPath/lattedockrc" "$configFolder/lattedockrc"
-cp -r "$configPath/latte" "$configFolder/latte"
-
 #dolphin config
 cp "$configPath/dolphinrc" "$configFolder/dolphinrc"
 #config session desktop
@@ -65,8 +61,3 @@ cp -r "$dataPath/kfontinst" "$configFolder/kfontinst"
 #fonts dpi
 cp "$configPath/kcmfonts" "$configFolder/kcmfonts"
 
-#if latte-dock was running when we saved then create a flag file for running it on restore
-if pgrep -x latte-dock > /dev/null
-then
-    touch "$configFolder/latterun"
-fi

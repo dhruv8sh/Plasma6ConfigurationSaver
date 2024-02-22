@@ -1,0 +1,23 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "dhruv8sh@proton.me",
+                "Name": "Dhruvesh Surolia"
+            }
+        ],
+        "Category": "Application Launchers",
+        "Description": "This is widget allows you to save your current desktop layout configuration and restore previous saved layouts on the fly.",
+        "Icon": "system-save-session",
+        "Id": "com.dhruv8sh.plasmaConfSaver",
+        "License": "GPL3",
+        "Name": "Plasma Configuration Saver",
+        "ServiceTypes": [
+            "Plasma/Applet"
+        ],
+        "Version": "0.1",
+        "Website": ""
+    },
+    "X-KDE-ParentApp": "",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

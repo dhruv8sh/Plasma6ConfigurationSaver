@@ -4,6 +4,7 @@ savePath=$2
 dataPath=$3
 modelData=$4
 
+
 if [ -d "$savePath/$modelData/icons" ]; then
     mv "$dataPath/icons" "$dataPath/icons.bak"
     cp -r "$savePath/$modelData/icons" "$dataPath"    
@@ -31,8 +32,8 @@ fi
 
 #backups
 mv "$configPath/plasma-org.kde.plasma.desktop-appletsrc" "$configPath/plasma-org.kde.plasma.desktop-appletsrc.bak"
-mv "$configPath/.config/plasmarc" "$configPath/.config/plasmarc.bak"
-mv "$configPath/.config/plasmashellrc" "$configPath/.config/plasmashellrc.bak"
+mv "$configPath/plasmarc" "$configPath/plasmarc.bak"
+mv "$configPath/plasmashellrc" "$configPath/plasmashellrc.bak"
 
 # plasma config files
 cp "$savePath/$modelData/plasma-org.kde.plasma.desktop-appletsrc" "$configPath/plasma-org.kde.plasma.desktop-appletsrc"
@@ -43,21 +44,6 @@ cp "$savePath/$modelData/kdeglobals" "$configPath/kdeglobals"
 #kwin                                    
 cp "$savePath/$modelData/kwinrc" "$configPath/kwinrc"
 cp "$savePath/$modelData/kwinrulesrc" "$configPath/kwinrulesrc"
-                                    
-#latte-dock config files                                    
-mv "$configPath/lattedockrc" "$configPath/lattedockrc.bak"
-mv "$configPath/latte" "$configPath/latte.bak"
-mv "$configPath/autostart" "$configPath/autostart.bak"
-mv "$configPath/Kvantum" "$configPath/Kvantum.bak"
-cp "$savePath/$modelData/lattedockrc" "$configPath/lattedockrc"
-cp -r "$savePath/$modelData/latte" "$configPath"
-cp -r "$savePath/$modelData/autostart" "$configPath"
-cp -r "$savePath/$modelData/Kvantum" "$configPath"
-#kvantum
-
-
-
-FILE=$savePath/$modelData/latterun
 
 #dolphin config
 cp "$savePath/$modelData/dolphinrc" "$configPath/dolphinrc"
@@ -78,17 +64,16 @@ cp "$savePath/$modelData/krunnerrc" "$configPath/krunnerrc"
 #fonts dpi config
 cp "$savePath/$modelData/kcmfonts" "$configPath/kcmfonts"
 
-
-sync
-if [ -f "$FILE" ]; then
-    killall latte-dock 
-    sleep 1 && nohup latte-dock &
-else 
-    killall latte-dock
-fi
+# echo "reached end"
 
 
-qdbus org.kde.KWin /KWin reconfigure 
-konsole -e kquitapp5 plasmashell && kstart5 plasmashell --windowclass plasmashell --window Desktop
+qdbus org.kde.KWin /KWin reconfigure
+# kquitapp6 plasmashell
+# kstart6 plasmashell
+kquitapp6 plasmashell
+killall plasmashell && kstart5 plasmashell
+# kstart plasmashell
+systemctl --user restart plasma-plasmashell
+# systemctl --user restart plasma-desktop
                                      
                             
